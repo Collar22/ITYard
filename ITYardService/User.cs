@@ -24,7 +24,7 @@ namespace ITYardService
         }
         public void DisplayInfo()
         {
-            Console.WriteLine($"Username - {this._username} and password - {this._password}");
+            Console.WriteLine($"Username - {this._username} and password - {this._password}"); //dd
         }
     }
 }
