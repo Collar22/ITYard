@@ -10,7 +10,7 @@ namespace ITYardService
         static void Main(string[] args)
         {
             
-
+            //qww
 
 
             var user1 = new User("Andriy", "Konon");
