@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ITYardService
 {
@@ -13,7 +14,7 @@ namespace ITYardService
         }
     }
 
-    public class LinkedList<T>
+    public class LinkedList<T> : IEnumerable<T>
     {
         public Node<T> first;
         Node<T> last;
@@ -271,6 +272,31 @@ namespace ITYardService
                 currentOuter = currentOuter.Next;
             }
         }
+
+        // Implementation interface IEnumerable
+        public IEnumerator<T> GetEnumerator()
+        {
+            var current = first;
+            while (current != null)
+            {
+                yield return current.Data;
+                current = current.Next;
+            }
+        }
+
+        /// <summary>
+        /// Return an enumerator that iterates through the linked list
+        /// </summary>
+        /// <returns>IEnumerator object that is used to traverse the collection</returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            // Simply return the enumerator defined above
+            // For the IEnumerable
+            // so that it is possible to iterate over the elements of a linked list using the foreach.
+            return ((IEnumerable)this).GetEnumerator();
+        }
+
+
 
     }
 }
