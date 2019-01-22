@@ -27,5 +27,7 @@ namespace ITYardService
             Console.WriteLine($"Full name is {_firstName} {_lastName} from country {_country}");
         }
     }
-    
+
+
+
 }
