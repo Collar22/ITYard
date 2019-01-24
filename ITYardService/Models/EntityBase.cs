@@ -4,36 +4,41 @@ using System.Text;
 
 namespace ITYardService
 {
-    public class EntityBase : Entity
+    //public class EntityBase : Entity
+    //{
+    //   public int Id;
+    //    public string Name;
+    //    public override void DisplayEntityInfo()
+    //    {
+    //        Console.WriteLine($"Id - {this.Id}, name - {this.Name}");
+    //    }
+    //    public override bool Validate()
+    //    {
+    //        if (string.IsNullOrWhiteSpace(this.Name))
+    //        {
+    //            return false;
+    //        }
+    //        return true;
+    //    }
+    //}
+
+    public abstract class EntityBase
     {
-       public int Id;
-        public string Name;
-        public override void DisplayEntityInfo()
+        public Guid Id { get; set; }
+        public virtual void DisplayEntityInfo()
         {
-            Console.WriteLine($"Id - {this.Id}, name - {this.Name}");
+            Console.WriteLine($"Id - {this.Id}");
         }
-        public override bool Validate()
+        public abstract bool Validator();
+
+        public EntityBase()
         {
-            if (string.IsNullOrWhiteSpace(this.Name))
-            {
-                return false;
-            }
-            return true;
+            this.Id = Guid.NewGuid();
         }
     }
 
-    //public abstract class EntityBase<T>
-    //{
-    //    public T Id { get; set; }
-    //    public virtual void DisplayEntityInfo()
-    //    {
-    //        Console.WriteLine($"Id - {this.Id}");
-    //    }
-    //    public abstract bool Validator();
-    //}
-   
 
-    
 
-   
+
+
 }

@@ -13,7 +13,7 @@ namespace ITYardService
         /// Address
         /// </summary>
         /// <param name="addressId"></param>
-        public Address(int addressId)
+        public Address(Guid addressId)
         {
             base.Id = addressId;
         }
@@ -29,7 +29,7 @@ namespace ITYardService
         {
             Console.WriteLine($"Address Id - {base.Id}, country - {this.Country}, city - {this.City}");
         }
-        public override bool Validate()
+        public override bool Validator()
         {
             var isValid = true;
             if (PostalCode == null) isValid = false;

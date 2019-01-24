@@ -6,20 +6,20 @@ namespace ITYardService
 
     public class Customer : EntityBase
     {
-        public Customer()
-            : this(0, string.Empty)
+        public Customer() : base()
         {
         }
-        public Customer(int customerId, string name)
+        public Customer(Guid customerId, string name)
         {
             base.Id = customerId;
-            base.Name = name;
+            this.Name = name;
             AddressList = new List<Address>();
         }
         public List<Address> AddressList { get; set; }
         public int CustomerType { get; set; }
         public static int InstanceCount { get; set; }
         public string LastName { get; set; }
+        public string Name { get; set; }
         public string EmailAddress { get; set; }
 
         public string FullName
@@ -31,9 +31,9 @@ namespace ITYardService
         }
         public override void DisplayEntityInfo()
         {
-            Console.WriteLine($"Customer Id - {base.Id}, first name - {base.Name}, last name - {this.LastName}");
+            Console.WriteLine($"Customer Id - {base.Id}, first name - {this.Name}, last name - {this.LastName}");
         }
-        public override bool Validate()
+        public override bool Validator()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
