@@ -7,10 +7,10 @@ namespace ITYardService
         static void Main(string[] args)
         {
             //Вызов скрытых методов         
-            var address1 = new Address(1);
+            var address1 = new Address();
             address1.City = "Poltava";
             address1.Country = "Ukraine";
-            var customer1 = new Customer(1, "Andrii");
+            var customer1 = new Customer("Andrii");
             customer1.LastName = "Kononenko";
             // Сокрытие методов
             address1.DisplayEntityInfo();

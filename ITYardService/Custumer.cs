@@ -9,9 +9,9 @@ namespace ITYardService
         public Customer() : base()
         {
         }
-        public Customer(Guid customerId, string name)
+        public Customer(string name)
         {
-            base.Id = customerId;
+           // base.Id = customerId;
             this.Name = name;
             AddressList = new List<Address>();
         }

@@ -6,7 +6,7 @@ namespace ITYardService
 {
     public class Address : EntityBase
     {
-        public Address()
+        public Address():base()
         {
         }
         /// <summary>
