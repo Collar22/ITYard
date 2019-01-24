@@ -11,6 +11,11 @@ namespace ITYardService
         public string Description { get; set; }
         decimal Price { get; set; }
 
+        public Guid _id;
+        public Product()
+        {
+            this._id = Guid.NewGuid();
+        }
         public void ProductName(string name)
         {
             this.Name = name;

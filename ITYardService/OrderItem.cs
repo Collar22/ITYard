@@ -7,8 +7,14 @@ namespace ITYardService
     public class OrderItem : Entity
     {
         string Name { get; set; }
+        public Guid _id;
+        public OrderItem()
+        {
+            this._id = Guid.NewGuid();
+        }
         public int Quantity { get; set; }
         public decimal PurchasePrice { get; set; }
+        public Guid OrderId { get; set; }
         public void Product(string name)
         {
             this.Name = name;

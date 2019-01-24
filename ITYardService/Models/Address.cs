@@ -9,10 +9,15 @@ namespace ITYardService
         public Address()
         {
         }
+        /// <summary>
+        /// Address
+        /// </summary>
+        /// <param name="addressId"></param>
         public Address(int addressId)
         {
             base.Id = addressId;
         }
+        
         public int AddressType { get; set; }
         public string StreetLine1 { get; set; }
         public string StreetLine2 { get; set; }
@@ -23,6 +28,12 @@ namespace ITYardService
         public override void DisplayEntityInfo()
         {
             Console.WriteLine($"Address Id - {base.Id}, country - {this.Country}, city - {this.City}");
+        }
+        public override bool Validate()
+        {
+            var isValid = true;
+            if (PostalCode == null) isValid = false;
+            return isValid;
         }
     }
 }

@@ -6,10 +6,10 @@ namespace ITYardService
 {
     public class User
     {
-        public Guid _id;
+       
         public string _username;
         public string _password { get; set; }
-
+        public Guid _id;
         public User()
         {
             this._id = Guid.NewGuid();
