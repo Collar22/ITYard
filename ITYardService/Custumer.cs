@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace ITYardService
 {
-
+    [DataContract]
     public class Customer : EntityBase
     {
         public Customer() : base()
@@ -18,16 +21,22 @@ namespace ITYardService
         public List<Address> AddressList { get; set; }
         public int CustomerType { get; set; }
         public static int InstanceCount { get; set; }
+        [DataMember]
         public string LastName { get; set; }
+        [DataMember]
         public string Name { get; set; }
         public string EmailAddress { get; set; }
-
+        [DataMember]
         public string FullName
         {
             get
             {
                 return this.Name + " " + this.LastName;
             }
+        }
+        public void GetOrder()
+        {
+            // вернуть лист ордера
         }
         public override void DisplayEntityInfo()
         {

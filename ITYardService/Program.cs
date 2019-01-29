@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace ITYardService
 {
@@ -34,7 +37,18 @@ namespace ITYardService
 
             var user1 = new User("Andriy", "Konon");
             var user2 = new User("Jonh", "*MFfs3fd213");
+                        
             var repo = new UserRepository();
+           
+
+            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(User));
+
+            using (FileStream fs = new FileStream("people.json", FileMode.OpenOrCreate))
+            {
+                jsonFormatter.WriteObject(fs, repo.All());
+            }
+
+
             //Console.WriteLine("{0}", user1._id);
 
             //repo.Insert(user1);
@@ -62,6 +76,9 @@ namespace ITYardService
             //Custumer custumer2 = new Custumer("John", "Rembo", "USA");
             //custumer1.PrintFullName();
             //custumer2.PrintFullName();
+
+
+
 
             Console.ReadKey();
         }

@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace ITYardService
 {
-    public class UserRepository
+    
+    public class UserRepository: IRepository
     {
         public static Dictionary<Guid, User> _users = new Dictionary<Guid, User>();
         private Logger logger = new Logger();
@@ -13,26 +15,27 @@ namespace ITYardService
         {
             return _users.Values.ToArray();
         }
-        public void Insert(User user)
+        public bool Insert(User user)
         {
             _users.Add(user._id, user);
             this.logger.LogInfo($"Add {user._username} with id - {user._id} to repository");
-               
+            return true;
         }
-        public void GetById(Guid _id)
+        public User GetById(Guid _id)
         {
             // return copy @user
-            var user = new User();
-            user = _users[_id];
+           
+          var user = _users[_id];
             Console.WriteLine($"this user {user._username} and password {user._password}");
+            return user;
             
            // Console.WriteLine($"this user {_users[_id]._username} and password {_users[_id]._password}");
         }
 
-        public bool Update(Guid _id, User user)
+        public void Update(Guid _id, User user)
         {
             _users[_id] = user;
-            return true;
+            
         }
         public bool HardUpdate(Guid _id)
         {
@@ -56,6 +59,45 @@ namespace ITYardService
             Console.WriteLine($"Username - {_users[_id]._username} and password - {_users[_id]._password}");
         }
 
+        List<object> IRepository.All()
+        {
+            throw new NotImplementedException();
+        }
 
+        private Dictionary<Guid, object> database;
+        public void Insert(object item)
+        {
+            var entity = item as EntityBase;
+            if (entity != null)
+            {
+                if (!database.ContainsKey(entity.Id))
+                {
+                    database.Add(entity.Id, entity);
+                }
+            }
+        }       
+
+        public void Update(Guid id, object item)
+        {
+            var entity = item as EntityBase;
+            if (entity != null)
+            {
+                if (!database.ContainsKey(entity.Id))
+                {
+                    database[entity.Id] = entity;
+                }
+            }
+
+        }
+
+        object IRepository.GetById(Guid id)
+        {
+            var entity = database[id];
+            if (!database.ContainsKey(id))
+            {
+                return entity;
+            }
+            return null;
+        }
     }
 }
