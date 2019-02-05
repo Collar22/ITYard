@@ -21,16 +21,16 @@ namespace ITYardService
             this.logger.LogInfo($"Add {user._username} with id - {user._id} to repository");
             return true;
         }
-        public User GetById(Guid _id)
-        {
-            // return copy @user
+        //public User GetById(Guid _id)
+        //{
+        //    // return copy @user
            
-          var user = _users[_id];
-            Console.WriteLine($"this user {user._username} and password {user._password}");
-            return user;
+        //  var user = _users[_id];
+        //    Console.WriteLine($"this user {user._username} and password {user._password}");
+        //    return user;
             
-           // Console.WriteLine($"this user {_users[_id]._username} and password {_users[_id]._password}");
-        }
+        //   // Console.WriteLine($"this user {_users[_id]._username} and password {_users[_id]._password}");
+        //}
 
         public void Update(Guid _id, User user)
         {
@@ -59,10 +59,7 @@ namespace ITYardService
             Console.WriteLine($"Username - {_users[_id]._username} and password - {_users[_id]._password}");
         }
 
-        List<object> IRepository.All()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private Dictionary<Guid, object> database;
         public void Insert(object item)
@@ -90,7 +87,7 @@ namespace ITYardService
 
         }
 
-        object IRepository.GetById(Guid id)
+        private object GetById(Guid id)
         {
             var entity = database[id];
             if (!database.ContainsKey(id))

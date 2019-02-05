@@ -22,18 +22,18 @@ namespace ITYardService
     //    }
     //}
 
-    public abstract class EntityBase
+    public abstract class EntityBase<T>
     {
-        public Guid Id { get; set; }
+        public T Id { get; set; }
         public virtual void DisplayEntityInfo()
         {
             Console.WriteLine($"Id - {this.Id}");
         }
         public abstract bool Validator();
 
-        public EntityBase()
+        public EntityBase(T id)
         {
-            this.Id = Guid.NewGuid();
+            this.Id = id;
         }
     }
 

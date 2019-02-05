@@ -4,13 +4,13 @@ using System.Text;
 
 namespace ITYardService
 {
-    interface IRepository
+    public interface IRepository<T>
+    //interface IRepository<T> where T: EntityBase
     {
-       // object[] All();
-        List<object> All();
-        void Insert(object item);
-        object GetById(Guid id);
+        IEnumerable<T> All();       
+        bool Insert(T entity);
+        T GetById(Guid id);
         bool Delete(Guid id);
-        void Update(Guid id, object item);
+        bool Update(Guid id, T entity);
     }
 }
