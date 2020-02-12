@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
+using System.Linq;
 
 namespace ITYardService
 {
@@ -17,24 +18,10 @@ namespace ITYardService
             customer1.LastName = "Kononenko";
             // Сокрытие методов
             address1.DisplayEntityInfo();
-            customer1.DisplayEntityInfo();
+            //customer1.DisplayEntityInfo();
             Console.ReadLine();
 
-            /* 
-            Задание
-
-            1. Перевести проект на .Net Core
-
-            2. Добавить Entity классы в папку ../Models
-
-            3. Добавить virtual - override DisplayEntityInfo
-
-            4. Вызвать DisplayEntityInfo на типе EntityBase для Address и Customer
-
-            5. Инкапсуляция. Добавим методы доступа к полям.
-
-            */
-
+            
             var user1 = new User("Andriy", "Konon");
             var user2 = new User("Jonh", "*MFfs3fd213");
                         

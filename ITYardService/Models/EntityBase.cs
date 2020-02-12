@@ -22,7 +22,7 @@ namespace ITYardService
     //    }
     //}
 
-    public abstract class EntityBase<T>
+    public abstract class EntityBase
     {
         public T Id { get; set; }
         public virtual void DisplayEntityInfo()

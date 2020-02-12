@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITYardService", "ITYardService\ITYardService.csproj", "{AB085648-4267-47B6-8856-A20EAF8507E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITYardService", "ITYardService\ITYardService.csproj", "{AB085648-4267-47B6-8856-A20EAF8507E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{BBB875CC-A6E0-4B26-8522-A7B2D5DAD907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebITYard", "WebITYard\WebITYard.csproj", "{505C21E3-7725-46FB-9B20-97873EB46E65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,9 +16,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AB085648-4267-47B6-8856-A20EAF8507E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB085648-4267-47B6-8856-A20EAF8507E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB085648-4267-47B6-8856-A20EAF8507E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB085648-4267-47B6-8856-A20EAF8507E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB875CC-A6E0-4B26-8522-A7B2D5DAD907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB875CC-A6E0-4B26-8522-A7B2D5DAD907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB875CC-A6E0-4B26-8522-A7B2D5DAD907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505C21E3-7725-46FB-9B20-97873EB46E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505C21E3-7725-46FB-9B20-97873EB46E65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505C21E3-7725-46FB-9B20-97873EB46E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505C21E3-7725-46FB-9B20-97873EB46E65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

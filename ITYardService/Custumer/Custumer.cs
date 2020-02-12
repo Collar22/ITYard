@@ -7,14 +7,14 @@ using System.Runtime.Serialization;
 namespace ITYardService
 {
     [DataContract]
-    public class Customer : EntityBase
+    public class Customer : EntityBase<T> 
     {
         public Customer() : base()
         {
         }
         public Customer(string name)
         {
-           // base.Id = customerId;
+            // base.Id = customerId;
             this.Name = name;
             AddressList = new List<Address>();
         }
@@ -34,6 +34,9 @@ namespace ITYardService
                 return this.Name + " " + this.LastName;
             }
         }
+
+        public object Id { get; internal set; }
+
         public void GetOrder()
         {
             // вернуть лист ордера

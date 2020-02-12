@@ -6,7 +6,7 @@ namespace ITYardService
 {
     public class Entity
     {
-        int Id;
+        Guid Id;
         string Name;
         public virtual void DisplayEntityInfo()
         {

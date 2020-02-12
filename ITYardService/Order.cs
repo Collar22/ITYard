@@ -16,6 +16,8 @@ namespace ITYardService
         public string ShippingAddress { get; set; }
 
         public List<object> Items { get; set; }
+        public object CustomerId { get; internal set; }
+
         public override bool Validate()
         {
             if (string.IsNullOrWhiteSpace(this.Customer))
